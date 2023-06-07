@@ -18,6 +18,12 @@
       type="image/x-icon"
     />
     <title>Pokédex</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="./assets/styles/main.css" />
   </head>
   <body>
@@ -27,11 +33,11 @@
       <a href="./createPokemon.html">Créer un Pokémon</a>
       <a href="./about.html">À propos</a>
       <hr />
-      <h3>Créer un Pokémon</h3>
     </header>
-    <main>
+    <main class="container">
+      <h3>Créer un Pokémon</h3>
       <form method="POST">
-        <label for="number">Numéro</label> <br />
+        <label for="number">Numéro</label> 
         <input
           type="number"
           min="1"
@@ -41,10 +47,11 @@
           placeholder="Le numéro du Pokémon"
           required
           value="1"
+          class="form-control"
         />
-        <br />
-        <br />
-        <label for="name">Nom</label> <br />
+        
+        
+        <label for="name">Nom</label>
         <input
           type="text"
           minlength="3"
@@ -53,10 +60,11 @@
           id="name"
           placeholder="Le nom du Pokémon"
           required
+          class="form-control"
         />
-        <br />
-        <br />
-        <label for="image">Image</label> <br />
+        
+        
+        <label for="image">Image</label> 
         <input
           type="text"
           minlength="50"
@@ -64,32 +72,43 @@
           id="image"
           placeholder="L'image du Pokémon"
           required
+          class="form-control"
         />
-        <br />
-        <br />
-        <label for="type1">Type 1</label> <br />
+        <label for="type1">Type 1</label> 
         <input type="radio" name="type1" id="fire" value="Feu" />
-        <label for="fire">Feu</label> <br />
+        <label for="fire">Feu</label> 
         <input type="radio" name="type1" id="water" value="Eau" />
-        <label for="water">Eau</label> <br />
+        <label for="water">Eau</label> 
         <input type="radio" name="type1" id="grass" value="Plante" />
-        <label for="grass">Plante</label> <br />
-        <br />
-        <label for="type2">Type 2</label> <br />
-        <select name="type2" id="type2">
+        <label for="grass">Plante</label> 
+        
+        <label for="type2">Type 2</label> 
+        <select class="form-control" name="type2" id="type2">
           <option value="ice">Glace</option>
           <option value="dark" selected>Ténèbre</option>
           <option value="psy">Psy</option>
         </select>
-        <br /><br />
+        
 
-        <label for="attacks">Attaques</label> <br />
-        <input type="checkbox" checked name="attacks" id="tackle" value="Charge" />
-        <label for="tackle">Charge</label> <br>
-        <input type="checkbox" checked name="attacks" id="growl" value="Rugissement" />
-        <label for="growl">Rugissement</label> <br>
+        <label for="attacks">Attaques</label> 
+        <input
+          type="checkbox"
+          checked
+          name="attacks"
+          id="tackle"
+          value="Charge"
+        />
+        <label for="tackle">Charge</label> 
+        <input
+          type="checkbox"
+          checked
+          name="attacks"
+          id="growl"
+          value="Rugissement"
+        />
+        <label for="growl">Rugissement</label> 
         <input type="checkbox" name="attacks" id="splash" value="Trempette" />
-        <label for="splash">Trempette</label> <br>
+        <label for="splash">Trempette</label> 
         <input
           type="checkbox"
           name="attacks"
@@ -97,8 +116,8 @@
           value="Ultralaser"
         />
         <label for="hyper-beam">Ultralaser</label>
-        <br /><br />
-        <input type="submit" value="Créer" />
+        <br>
+        <input class="btn btn-success mt-3" type="submit" value="Créer" />
       </form>
     </main>
 
