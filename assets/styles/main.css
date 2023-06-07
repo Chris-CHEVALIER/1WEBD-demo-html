@@ -57,6 +57,10 @@ td {
   padding: 15px;
 }
 
+form {
+  margin: 20px;
+}
+
 footer {
   position: sticky;
   bottom: 0;

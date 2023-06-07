@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Un super Pokédex de la première génération de Pokémon !"
+    />
+    <meta
+      name="keywords"
+      content="Pokédex, 1ère génération, Pokémon, Dracaufeu, Pikachu"
+    />
+    <meta name="author" content="Chris Chevalier" />
+    <link
+      rel="shortcut icon"
+      href="./assets/images/logo.png"
+      type="image/x-icon"
+    />
+    <title>Pokédex</title>
+    <link rel="stylesheet" href="./assets/styles/main.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Pokédex</h1>
+      <img src="./assets/images/logo.png" alt="Logo de Pokéball" width="80px" />
+      <a href="./createPokemon.html">Créer un Pokémon</a>
+      <a href="./about.html">À propos</a>
+      <hr />
+      <h3>Créer un Pokémon</h3>
+    </header>
+    <main>
+      <form method="POST">
+        <label for="number">Numéro</label> <br />
+        <input
+          type="number"
+          min="1"
+          max="1050"
+          name="number"
+          id="number"
+          placeholder="Le numéro du Pokémon"
+          required
+          value="1"
+        />
+        <br />
+        <br />
+        <label for="name">Nom</label> <br />
+        <input
+          type="text"
+          minlength="3"
+          maxlength="50"
+          name="name"
+          id="name"
+          placeholder="Le nom du Pokémon"
+          required
+        />
+        <br />
+        <br />
+        <label for="image">Image</label> <br />
+        <input
+          type="text"
+          minlength="50"
+          name="image"
+          id="image"
+          placeholder="L'image du Pokémon"
+          required
+        />
+        <br />
+        <br />
+        <label for="type1">Type 1</label> <br />
+        <input type="radio" name="type1" id="fire" value="Feu" />
+        <label for="fire">Feu</label> <br />
+        <input type="radio" name="type1" id="water" value="Eau" />
+        <label for="water">Eau</label> <br />
+        <input type="radio" name="type1" id="grass" value="Plante" />
+        <label for="grass">Plante</label> <br />
+        <br />
+        <label for="type2">Type 2</label> <br />
+        <select name="type2" id="type2">
+          <option value="ice">Glace</option>
+          <option value="dark" selected>Ténèbre</option>
+          <option value="psy">Psy</option>
+        </select>
+        <br /><br />
+
+        <label for="attacks">Attaques</label> <br />
+        <input type="checkbox" checked name="attacks" id="tackle" value="Charge" />
+        <label for="tackle">Charge</label> <br>
+        <input type="checkbox" checked name="attacks" id="growl" value="Rugissement" />
+        <label for="growl">Rugissement</label> <br>
+        <input type="checkbox" name="attacks" id="splash" value="Trempette" />
+        <label for="splash">Trempette</label> <br>
+        <input
+          type="checkbox"
+          name="attacks"
+          id="hyper-beam"
+          value="Ultralaser"
+        />
+        <label for="hyper-beam">Ultralaser</label>
+        <br /><br />
+        <input type="submit" value="Créer" />
+      </form>
+    </main>
+
+    <footer>
+      <a href="mailto:chris.chevalier@ecole-hexagone.com">
+        Contactez l'administrateur
+      </a>
+      <p>© Copyright Chris Chevalier 2023</p>
+    </footer>
+  </body>
+</html>
