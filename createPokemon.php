@@ -2,10 +2,17 @@
 
 require("./layout/header.php");
 
-if ($_POST):
-  echo "Vous venez de créer le Pokémon n°{$_POST['number']}, nommé {$_POST['name']}.<br>Voici son image"; ?>
-  <img src="<?php echo $_POST["image"] ?>" alt="<?= $_POST['name'] ?>">
-<?php endif ?>
+if ($_POST) :
+  echo "Vous venez de créer le Pokémon n°{$_POST['number']}, nommé {$_POST['name']}.<br>Voici son image : "; ?>
+  <img width="120px" src="<?php echo $_POST["image"] ?>" alt="<?= $_POST['name'] ?>">
+
+
+<?php
+  echo "<pre>";
+  print_r($_POST);
+  echo "</pre>";
+endif
+?>
 
 <main class="container">
   <h3>Créer un Pokémon</h3>
@@ -34,13 +41,13 @@ if ($_POST):
     </select>
 
     <label for="attacks">Attaques</label>
-    <input type="checkbox" checked name="attacks" id="tackle" value="Charge" />
+    <input type="checkbox" checked name="attacks[]" id="tackle" value="Charge" />
     <label for="tackle">Charge</label>
-    <input type="checkbox" checked name="attacks" id="growl" value="Rugissement" />
+    <input type="checkbox" checked name="attacks[]" id="growl" value="Rugissement" />
     <label for="growl">Rugissement</label>
-    <input type="checkbox" name="attacks" id="splash" value="Trempette" />
+    <input type="checkbox" name="attacks[]" id="splash" value="Trempette" />
     <label for="splash">Trempette</label>
-    <input type="checkbox" name="attacks" id="hyper-beam" value="Ultralaser" />
+    <input type="checkbox" name="attacks[]" id="hyper-beam" value="Ultralaser" />
     <label for="hyper-beam">Ultralaser</label>
     <br>
     <input class="btn btn-success mt-3" type="submit" value="Créer" />
