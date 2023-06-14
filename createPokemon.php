@@ -2,6 +2,8 @@
 
 require("./layout/header.php");
 
+// $pikachu->setNumber(26)->setName("Raichu");
+
 if ($_POST) :
   echo "Vous venez de créer le Pokémon n°{$_POST['number']}, nommé {$_POST['name']}.<br>Voici son image : "; ?>
   <img width="120px" src="<?php echo $_POST["image"] ?>" alt="<?= $_POST['name'] ?>">

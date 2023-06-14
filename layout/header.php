@@ -37,3 +37,11 @@
         <h1>Pokédex</h1>
         <hr />
     </header>
+
+    <?php
+    function loadClass(string $class): void
+    {
+        require "./Entity/$class.php";
+    }
+    spl_autoload_register("loadClass");
+    ?>

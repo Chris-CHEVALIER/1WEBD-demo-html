@@ -1,43 +1,26 @@
-<?php require("./layout/header.php") ?>
+<?php require("./layout/header.php");
+
+$pokemon = new Pokemon([
+  "number" => 25,
+  "name" => "Pikachu",
+  "type1" => "Electrik",
+  "type2" => "",
+  "image" => "https://upload.wikimedia.org/wikipedia/en/a/a6/Pok%C3%A9mon_Pikachu_art.png",
+  "attacks" => ["Eclair", "Tonnerre"]
+]);
+?>
 
 <h3>Liste des Pokémon</h3>
-<nav>
-  <ul class="sumup">
-    <img src="./assets/images/logo.png" alt="Logo Pokédex" width="60px" />
-    <li>
-      <a class="link" href="#bulbasaur">Bulbizarre</a>
-    </li>
-    <li>
-      <a class="link" href="#ivysaur">Herbizarre</a>
-    </li>
-    <li>
-      <a class="link" href="#venusaur">Florizarre</a>
-    </li>
-  </ul>
-</nav>
 <main>
   <section>
-    <ol>
-      <li id="bulbasaur">
-        <a href="https://www.pokepedia.fr/Bulbizarre" target="_blank">
-          Bulbizarre
-        </a>
-        <img src="https://www.pokepedia.fr/images/thumb/e/ef/Bulbizarre-RFVF.png/500px-Bulbizarre-RFVF.png" alt="Bulbizarre" width="180px" />
-      </li>
-      <li id="ivysaur">
-        <a href="https://www.pokepedia.fr/Herbizarre" target="_blank">
-          Herbizarre
-        </a>
-        <img src="https://www.pokepedia.fr/images/thumb/4/44/Herbizarre-RFVF.png/500px-Herbizarre-RFVF.png" alt="Herbizarre" width="180px" />
-      </li>
-
-      <li id="venusaur">
-        <a href="https://www.pokepedia.fr/Florizarre" target="_blank">
-          Florizarre
-        </a>
-        <img src="https://www.pokepedia.fr/images/thumb/4/42/Florizarre-RFVF.png/500px-Florizarre-RFVF.png" alt="Herbizarre" width="180px" />
-      </li>
-    </ol>
+    <div class="card" style="width: 18rem;">
+      <img src="<?= $pokemon->getImage() ?>" class="card-img-top" alt="<?= $pokemon->getName() ?>">
+      <div class="card-body">
+        <h5 class="card-title"><?= $pokemon->getName() ?></h5>
+        <p class="card-text">#<?= $pokemon->getNumber() ?></p>
+        <a href="#" class="btn btn-warning">Modifier</a>
+      </div>
+    </div>
   </section>
 
   <section>
@@ -62,15 +45,17 @@
     </table>
   </section>
 
+  <!--
   <video src="./assets/videos/planet.mp4" muted autoplay loop controls>
     Votre navigateur ne supporte la vidéo.
   </video>
   <audio src="./assets/audios/test.mp3" autoplay>
     Votre navigateur ne supporte l'audio.
-  </audio>
+  </audio> 
 
   <iframe width="560" height="315" src="https://www.youtube.com/embed/oEAuNzWXRjM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
   <iframe width="560" height="315" src="https://www.youtube.com/embed/2IH8tNQAzSs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    -->
 </main>
 <?php require("./layout/footer.php") ?>
