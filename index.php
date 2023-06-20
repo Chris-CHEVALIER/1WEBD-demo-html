@@ -1,26 +1,31 @@
 <?php require("./layout/header.php");
 
-$pokemon = new Pokemon([
+/* $pokemon = new Pokemon([
+  "id" => 3,
   "number" => 25,
   "name" => "Pikachu",
-  "type1" => "Electrik",
-  "type2" => "",
+  "id_type1" => 3,
+  "type2" => NULL,
   "image" => "https://upload.wikimedia.org/wikipedia/en/a/a6/Pok%C3%A9mon_Pikachu_art.png",
-  "attacks" => ["Eclair", "Tonnerre"]
-]);
+  "description" => "Ce Pikachu porte la casquette de son partenaire. Elle symbolise les liens étroits qu'ils ont tissés lors de leurs aventures à travers diverses régions."
+]); */
+
+$pokemons = $pokemonController->getAll();
 ?>
 
-<h3>Liste des Pokémon</h3>
-<main>
-  <section>
-    <div class="card" style="width: 18rem;">
-      <img src="<?= $pokemon->getImage() ?>" class="card-img-top" alt="<?= $pokemon->getName() ?>">
-      <div class="card-body">
-        <h5 class="card-title"><?= $pokemon->getName() ?></h5>
-        <p class="card-text">#<?= $pokemon->getNumber() ?></p>
-        <a href="#" class="btn btn-warning">Modifier</a>
+<main class="container">
+  <h3>Liste des Pokémon</h3>
+  <section class="d-flex gap-5 flex-wrap">
+    <?php foreach ($pokemons as $pokemon) : ?>
+      <div class="card" style="width: 18rem;">
+        <img src="<?= $pokemon->getImage() ?>" class="card-img-top" alt="<?= $pokemon->getName() ?>">
+        <div class="card-body">
+          <h5 class="card-title"><?= $pokemon->getName() ?></h5>
+          <p class="card-text"><?= $pokemon->getDescription() ?></p>
+          <a href="#" class="btn btn-warning">Modifier</a>
+        </div>
       </div>
-    </div>
+    <?php endforeach ?>
   </section>
 
   <section>

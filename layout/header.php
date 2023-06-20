@@ -39,9 +39,13 @@
     </header>
 
     <?php
-    function loadClass(string $class): void
-    {
-        require "./Entity/$class.php";
-    }
-    spl_autoload_register("loadClass");
+    spl_autoload_register(function ($className) {
+        if (strpos($className, "Controller")) {
+            require "./Controller/$className.php";
+        } else {
+            require "./Entity/$className.php";
+        }
+    });
+
+    $pokemonController = new PokemonController();
     ?>

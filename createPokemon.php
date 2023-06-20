@@ -10,9 +10,11 @@ if ($_POST) :
 
 
 <?php
-  echo "<pre>";
-  print_r($_POST);
-  echo "</pre>";
+  if ($_POST["id_type2"] === "0") {
+    $_POST["id_type2"] = NULL;
+  }
+  $pokemonController->create(new Pokemon($_POST));
+  echo "<script>window.location.href='index.php'</script>";
 endif
 ?>
 
@@ -26,31 +28,26 @@ endif
     <input type="text" minlength="3" maxlength="50" name="name" id="name" placeholder="Le nom du Pokémon" required class="form-control" />
 
     <label for="image">Image</label>
-    <input type="text" minlength="50" name="image" id="image" placeholder="L'image du Pokémon" required class="form-control" />
-    <label for="type1">Type 1</label>
-    <input type="radio" name="type1" id="fire" value="Feu" />
-    <label for="fire">Feu</label>
-    <input type="radio" name="type1" id="water" value="Eau" />
-    <label for="water">Eau</label>
-    <input type="radio" name="type1" id="grass" value="Plante" />
-    <label for="grass">Plante</label>
+    <input type="url" minlength="50" name="image" id="image" placeholder="L'image du Pokémon" required class="form-control" />
 
-    <label for="type2">Type 2</label>
-    <select class="form-control" name="type2" id="type2">
-      <option value="ice">Glace</option>
-      <option value="dark" selected>Ténèbre</option>
-      <option value="psy">Psy</option>
+    <label for="id_type1">Type 1</label>
+    <input type="radio" checked name="id_type1" id="grass" value="1" />
+    <label for="grass">Plante</label>
+    <input type="radio" name="id_type1" id="psy" value="2" />
+    <label for="water">Psy</label>
+    <input type="radio" name="id_type1" id="electrik" value="3" />
+    <label for="fire">Electrik</label><br>
+
+    <label for="id_type2">Type 2</label>
+    <select class="form-control" name="id_type2" id="id_type2">
+      <option value="0">-</option>
+      <option value="1">Plante</option>
+      <option value="2">Psy</option>
+      <option value="3">Electrik</option>
     </select>
 
-    <label for="attacks">Attaques</label>
-    <input type="checkbox" checked name="attacks[]" id="tackle" value="Charge" />
-    <label for="tackle">Charge</label>
-    <input type="checkbox" checked name="attacks[]" id="growl" value="Rugissement" />
-    <label for="growl">Rugissement</label>
-    <input type="checkbox" name="attacks[]" id="splash" value="Trempette" />
-    <label for="splash">Trempette</label>
-    <input type="checkbox" name="attacks[]" id="hyper-beam" value="Ultralaser" />
-    <label for="hyper-beam">Ultralaser</label>
+    <label for="description">Description</label>
+    <textarea name="description" id="description" class="form-control"></textarea>
     <br>
     <input class="btn btn-success mt-3" type="submit" value="Créer" />
   </form>

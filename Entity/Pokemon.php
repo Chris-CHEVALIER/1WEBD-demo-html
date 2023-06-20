@@ -7,31 +7,41 @@ class Pokemon
     private int $number;
     private string $name;
     // private int $lifePoints;
-    private string $type1;
-    private string $type2;
+    private int $id_type1;
+    private ?int $id_type2;
     private string $image;
-    private array $attacks;
+    private string $description;
 
     // Méthodes
     public function __construct(array $data)
     {
-        if ($data["number"]) {
+        $this->hydrate($data);
+    }
+
+    public function hydrate(array $data) : void {
+        /* if ($data["number"]) {
             $this->number = $data["number"];
         }
         if ($data["name"]) {
             $this->name = $data["name"];
         }
-        if ($data["type1"]) {
-            $this->type1 = $data["type1"];
+        if ($data["id_type1"]) {
+            $this->id_type1 = $data["id_type1"];
         }
-        if ($data["type2"]) {
-            $this->type2 = $data["type2"];
+        if ($data["id_type2"]) {
+            $this->id_type2 = $data["id_type2"];
         }
         if ($data["image"]) {
             $this->image = $data["image"];
         }
-        if ($data["attacks"]) {
-            $this->attacks = $data["attacks"];
+        if ($data["description"]) {
+            $this->description = $data["description"];
+        } */
+        foreach ($data as $key => $value) {
+           $method = "set".ucfirst($key); // setId, setNumber, setName, setId_type1 etc.
+           if (method_exists($this, $method)) {
+            $this->$method($value);
+           }
         }
     }
 
@@ -74,34 +84,6 @@ class Pokemon
         return false;
     }
 
-    public function attack(): void
-    {
-        echo "$this->name attaque !";
-    }
-
-    public function getType1(): string
-    {
-        return $this->type1;
-    }
-
-    public function setType1(string $type1): self
-    {
-        $this->type1 = $type1;
-        return $this;
-    }
-
-    public function getType2()
-    {
-        return $this->type2;
-    }
-
-    public function setType2($type2)
-    {
-        $this->type2 = $type2;
-
-        return $this;
-    }
-
     public function getImage()
     {
         return $this->image;
@@ -114,15 +96,36 @@ class Pokemon
         return $this;
     }
 
-    public function getAttacks()
+    public function getId_type1(): int
     {
-        return $this->attacks;
+        return $this->id_type1;
     }
 
-    public function setAttacks($attacks)
+    public function setId_type1(int $id_type1)
     {
-        $this->attacks = $attacks;
+        $this->id_type1 = $id_type1;
+        return $this;
+    }
 
+    public function getId_type2(): ?int
+    {
+        return $this->id_type2;
+    }
+
+    public function setId_type2(?int $id_type2)
+    {
+        $this->id_type2 = $id_type2;
+        return $this;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    public function setDescription($description)
+    {
+        $this->description = $description;
         return $this;
     }
 }
