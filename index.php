@@ -11,6 +11,7 @@
 ]); */
 
 $pokemons = $pokemonController->getAll();
+$i = 0;
 ?>
 
 <main class="container">
@@ -21,14 +22,27 @@ $pokemons = $pokemonController->getAll();
         <img src="<?= $pokemon->getImage() ?>" class="card-img-top" alt="<?= $pokemon->getName() ?>">
         <div class="card-body">
           <h5 class="card-title"><?= $pokemon->getName() ?></h5>
-          <p class="card-text"><?= $pokemon->getDescription() ?></p>
-          <a href="#" class="btn btn-warning">Modifier</a>
+          <p class="card-text"><?= substr($pokemon->getDescription(), 0, 50) ?>...</p>
+          <a href="javascript:;" onclick="deployDescription(<?= htmlspecialchars(json_encode($pokemon->getDescription())) ?>, <?= $i ?>)" class="text-link">Voir plus</a>
+          <div>
+            <a href="#" class="btn btn-warning">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </a>
+            <a href="javascript:;" onclick="confirmDelete(<?= $pokemon->getId() ?>)" class="btn btn-danger">
+              <i class="fa-solid fa-trash"></i>
+            </a>
+          </div>
         </div>
       </div>
-    <?php endforeach ?>
+    <?php
+      $i++;
+    endforeach
+    ?>
   </section>
 
-  <section>
+  <div id="fruits"></div>
+
+  <!--section>
     <h3>Liste des types</h3>
     <table>
       <tr>
@@ -48,9 +62,8 @@ $pokemons = $pokemonController->getAll();
         <td style="background-color: #7ac74c"></td>
       </tr>
     </table>
-  </section>
+  section>
 
-  <!--
   <video src="./assets/videos/planet.mp4" muted autoplay loop controls>
     Votre navigateur ne supporte la vidéo.
   </video>
